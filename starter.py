@@ -1,10 +1,6 @@
-from gensim.summarization import keywords
-from gensim.summarization import summarize
+from summarization import Summarizer
 
-
-with open('text.txt', 'r', encoding='utf-8') as text_file:
-    text = text_file.read()
-
-#print('Keywords:')
-#print(keywords(text))
-print(summarize(text))
+summarizer = Summarizer("samples")
+sums = summarizer.summarize_all()
+for sum in sums:
+    print(sum)
