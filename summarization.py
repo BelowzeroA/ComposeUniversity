@@ -8,8 +8,9 @@ import os
 
 class Summarizer:
 
-    def __init__(self, folder):
+    def __init__(self, folder, ratio=0.2):
         self.sources = []
+        self.ratio = ratio
         self.load(folder)
 
     def load(self, folder):
@@ -24,7 +25,7 @@ class Summarizer:
     def summarize_all(self):
         result = []
         for source_text in self.sources:
-            summary = summarize(source_text)
+            summary = summarize(source_text, word_count=50, split=True)
             result.append(summary)
         return result
 
